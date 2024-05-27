@@ -1,7 +1,7 @@
 ---
 title: "Assignment 6"
 subtitle: "STAT 201"
-author: "YOUR NAME"
+author: "Max Beyer"
 
 format:
   html:
@@ -48,7 +48,7 @@ To get full credit for this Question you must:
 
 ## Github Repo Link
 
-[https://your-github-repo-url](https://your-github-repo-url)
+[https://github.com/maxbeyer1/Beyer_Max_201_A06](https://github.com/maxbeyer1/Beyer_Max_201_A06)
 
 :::
 
@@ -56,7 +56,8 @@ To get full credit for this Question you must:
 
 ## Screenshot/image of RStudio
 
-![](filepath.png)
+![](screenshot.png)
+(project name is really Beyer_Max_201_A06 as shown in GitHub link but I named the directory assignment_6 to be consistent with others which is what is showing in the screenshot)
 
 :::
 
