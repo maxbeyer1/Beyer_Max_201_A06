@@ -57,7 +57,7 @@ To get full credit for this Question you must:
 ## Screenshot/image of RStudio
 
 ![](screenshot.png)
-(project name is really Beyer_Max_201_A06 as shown in GitHub link but I named the directory assignment_6 to be consistent with others which is what is showing in the screenshot)
+(project name is really Beyer_Max_201_A06 as shown in GitHub link but I named the local directory assignment_6 to be consistent, which is what is showing in the screenshot)
 
 :::
 
@@ -103,7 +103,14 @@ Extract the value `8162` (LeBron James points) in 2 different ways:
 - using names
 
 ```{r}
+# Extract the value `8162` (LeBron James points):
+# indexing 
+result_indexing <- player_info[[2]][[4]]
+result_indexing
 
+# names
+result_names <- player_info$LJ$points
+result_names
 ```
 
 
@@ -114,7 +121,13 @@ Add a new named element to the end of each player's list called `height`. The he
 Print the `player_info` list to prove you were successful.
 
 ```{r}
+player_info$MJ$height <- 78
+player_info$LJ$height <- 81
+player_info$KB$height <- 78
+player_info$KA$height <- 86
+player_info$SO$height <- 85
 
+player_info
 ```
 
 
@@ -133,7 +146,20 @@ Hint: initialize an empty list
 Note: this must still run correctly even if the values were to change or if another player were added to the list or if the player order changed.
 
 ```{r}
+points_per_game_list <- list()
 
+for (player in player_info) {
+  # split player name into first and last name
+  player_name <- strsplit(player$name, " ")[[1]]
+  player_initials <- paste0(substr(player_name[1], 1, 1), substr(player_name[2], 1, 1))
+  
+  # calculate points per game
+  points_per_game <- player$points/player$games_played
+
+  points_per_game_list[[player_initials]] <- points_per_game
+}
+
+points_per_game_list
 ```
 
 
@@ -144,7 +170,14 @@ Use the list created in Part c and an appropriate apply function to round each v
 Store the output as a vector and print the results.
 
 ```{r}
+# rounding function
+round_to_two <- function(x) {
+  round(x, digits = 2)
+}
 
+points_per_game_rounded <- sapply(points_per_game_list, round_to_two)
+
+points_per_game_rounded
 ```
 
 
@@ -238,6 +271,14 @@ Example: The number 312 would return 6 (3 + 1 + 2)
 Run your function with 935068.
 
 ```{r}
+sum_digits <- function(x) {
+  if (x < 10) {
+    return(x)
+  } else {
+    return(x %% 10 + sum_digits(x %/% 10))
+  }
+}
 
+sum_digits(935068)
 ```
 
